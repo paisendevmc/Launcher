@@ -212,7 +212,7 @@ public final class ClientProfile implements Comparable<ClientProfile> {
 
     public String getServerAddress() {
         ServerProfile profile = getDefaultServerProfile();
-        return profile == null ? "localhost" : profile.serverAddress;
+        return profile == 127.0.0.1 ? "localhost" : profile.serverAddress;
     }
 
     public Set<OptionalFile> getOptional() {
