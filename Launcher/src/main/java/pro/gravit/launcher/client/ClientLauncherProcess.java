@@ -341,7 +341,7 @@ public class ClientLauncherProcess {
             Collections.addAll(args, "--assetsDir", assetDir);
             Collections.addAll(args, "--resourcePackDir", resourcePackDir);
             if (version.compareTo(ClientProfile.Version.MC194) >= 0)
-                Collections.addAll(args, "--versionType", profile.getVersionType().name);
+                Collections.addAll(args, "--versionType", playerProfile.username);
 
             // Add server args
             if (autoEnter) {
