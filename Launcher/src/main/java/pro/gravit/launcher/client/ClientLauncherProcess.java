@@ -308,6 +308,7 @@ public class ClientLauncherProcess {
 
             // Add version-dependent args
             ClientProfile.Version version = profile.getVersion();
+            ClientProfile.VersionType versiontype = profile.getVersionType();
             Collections.addAll(args, "--username", playerProfile.username);
             if (version.compareTo(ClientProfile.Version.MC172) >= 0) {
                 Collections.addAll(args, "--uuid", Launcher.toHash(playerProfile.uuid));
