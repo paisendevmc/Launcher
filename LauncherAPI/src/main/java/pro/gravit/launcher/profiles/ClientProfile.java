@@ -23,6 +23,8 @@ public final class ClientProfile implements Comparable<ClientProfile> {
     @LauncherNetworkAPI
     private String version;
     @LauncherNetworkAPI
+    private String versiontype;
+    @LauncherNetworkAPI
     private String info;
     @LauncherNetworkAPI
     private String dir;
@@ -100,7 +102,7 @@ public final class ClientProfile implements Comparable<ClientProfile> {
         runtimeInClientConfig = RuntimeInClientConfig.NONE;
     }
 
-    public ClientProfile(List<String> update, List<String> updateExclusions, List<String> updateShared, List<String> updateVerify, Set<OptionalFile> updateOptional, List<String> jvmArgs, List<String> classPath, List<String> altClassPath, List<String> clientArgs, List<String> compatClasses, Map<String, String> properties, List<ServerProfile> servers, SecurityManagerConfig securityManagerConfig, ClassLoaderConfig classLoaderConfig, SignedClientConfig signedClientConfig, RuntimeInClientConfig runtimeInClientConfig, String version, String assetIndex, String dir, String assetDir, int recommendJavaVersion, int minJavaVersion, int maxJavaVersion, boolean warnMissJavaVersion, ProfileDefaultSettings settings, int sortIndex, UUID uuid, String title, String info, boolean updateFastCheck, String mainClass) {
+    public ClientProfile(List<String> update, List<String> updateExclusions, List<String> updateShared, List<String> updateVerify, Set<OptionalFile> updateOptional, List<String> jvmArgs, List<String> classPath, List<String> altClassPath, List<String> clientArgs, List<String> compatClasses, Map<String, String> properties, List<ServerProfile> servers, SecurityManagerConfig securityManagerConfig, ClassLoaderConfig classLoaderConfig, SignedClientConfig signedClientConfig, RuntimeInClientConfig runtimeInClientConfig, String version, String versiontype, String assetIndex, String dir, String assetDir, int recommendJavaVersion, int minJavaVersion, int maxJavaVersion, boolean warnMissJavaVersion, ProfileDefaultSettings settings, int sortIndex, UUID uuid, String title, String info, boolean updateFastCheck, String mainClass) {
         this.update = update;
         this.updateExclusions = updateExclusions;
         this.updateShared = updateShared;
@@ -118,6 +120,7 @@ public final class ClientProfile implements Comparable<ClientProfile> {
         this.signedClientConfig = signedClientConfig;
         this.runtimeInClientConfig = runtimeInClientConfig;
         this.version = version;
+	this.versiontype = versiontype;
         this.assetIndex = assetIndex;
         this.dir = dir;
         this.assetDir = assetDir;
@@ -297,6 +300,14 @@ public final class ClientProfile implements Comparable<ClientProfile> {
 
     public void setVersion(Version version) {
         this.version = version.name;
+    }
+	
+    public VersionType getVersionType() {
+        return VersionType.byName(versiontype);
+    }
+
+    public void setVersionType(VersionType versiontype) {
+        this.versiontype = versiontype.name;
     }
 
     public boolean isUpdateFastCheck() {
