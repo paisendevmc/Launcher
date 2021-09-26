@@ -340,7 +340,7 @@ public class ClientLauncherProcess {
             Collections.addAll(args, "--assetsDir", assetDir);
             Collections.addAll(args, "--resourcePackDir", resourcePackDir);
             if (version.compareTo(ClientProfile.Version.MC194) >= 0)
-                Collections.addAll(args, "--versionType", "Launcher v" + Version.getVersion().getVersionString());
+                Collections.addAll(args, "--versionType", profile.getVersionType().name);
 
             // Add server args
             if (autoEnter) {
